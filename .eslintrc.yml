@@ -1,0 +1,14 @@
+extends:
+  - standard
+  - standard-react
+  - plugin:jsx-a11y/recommended
+plugins:
+  - jsx-a11y
+parser: babel-eslint
+rules:
+  object-curly-spacing: [ error, always ]
+  react/prop-types: off
+  indent: [2, 2] # 2 spaces indentation
+#  camelcase: off
+globals:
+  React: true

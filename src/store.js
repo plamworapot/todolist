@@ -2,12 +2,30 @@ import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import reducer from './reducers'
+import * as actionTypes from './constants/ActionTypes'
 
-export const initStore = (initialState = {},isServer = true) => {
-    return createStore(reducer,
-      initialState,
-      composeWithDevTools(
-        applyMiddleware(thunkMiddleware)
-      )
+let defaultStore = {
+  currentText: '',
+  currentDesc: '',
+  todos: [],
+  filter: actionTypes.FILTER_ALL
+}
+
+export const initStore = (initialState = defaultStore) => {
+  const store = createStore(reducer,
+    initialState,
+    composeWithDevTools(
+      applyMiddleware(thunkMiddleware)
     )
+  )
+
+  store.subscribe(() => {
+    if (window && window.localStorage) {
+      window.localStorage.setItem('todoState', JSON.stringify(store.getState()))
+    }
+  })
+
+  console.log(store)
+
+  return store
 }

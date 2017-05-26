@@ -1,5 +1,5 @@
 import React from 'react'
-import { bindActionCreators } from 'redux'
+// import { bindActionCreators } from 'redux'
 import withRedux from 'next-redux-wrapper'
 import { initStore } from './../src/store'
 import Todo from './../src/containers/Todo'
@@ -13,6 +13,7 @@ class Counter extends React.Component {
   }
 
   componentDidMount () {
+
   }
 
   componentWillUnmount () {
@@ -21,7 +22,7 @@ class Counter extends React.Component {
 
   render () {
     return (
-        <Todo />
+      <Todo />
     )
   }
 }

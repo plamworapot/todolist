@@ -1,6 +1,18 @@
 export const ADD_TODO = 'ADD_TODO'
 export const DELETE_TODO = 'DELETE_TODO'
-export const EDIT_TODO = 'EDIT_TODO'
-export const COMPLETE_TODO = 'COMPLETE_TODO'
-export const COMPLETE_ALL = 'COMPLETE_ALL'
-export const CLEAR_COMPLETED = 'CLEAR_COMPLETED'
+// export const EDIT_TODO = 'EDIT_TODO'
+// export const COMPLETE_TODO = 'COMPLETE_TODO'
+export const COMPLETE_TOGGLE = 'COMPLETE_TOGGLE'
+// export const COMPLETE_ALL = 'COMPLETE_ALL'
+// export const CLEAR_COMPLETED = 'CLEAR_COMPLETED'
+
+export const TEXT_CHANGE = 'TEXT_CHANGE'
+export const DESC_CHANGE = 'DESC_CHANGE'
+export const CLEAR_INPUT = 'CLEAR_INPUT'
+
+export const FILTER_TODO = 'FILTER_TODO'
+export const FILTER_ALL = 'FILTER_ALL'
+export const FILTER_COMPLETE = 'FILTER_COMPLETE'
+export const FILTER_NON_COMPLETE = 'FILTER_NON_COMPLETE'
+
+export const LOAD_PREV_STORE = 'LOAD_PREV_STORE'
