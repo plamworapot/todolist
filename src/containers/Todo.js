@@ -5,33 +5,12 @@ import { loadPrevStore } from './../actions'
 import TodoList from './TodoList'
 
 class Todo extends Component {
-  componentDidMount () {
-    if (window && window.localStorage) {
-      const prevState = window.localStorage.getItem('todoState')
-      if (prevState) {
-        this.props.loadPrevStore(JSON.parse(prevState))
-      }
-    }
-  }
-  add = () => {
-    // this.props.addCount()
-  }
-
   render () {
     return (
-      <div>
-        <style jsx>{`
-          div {
-            padding: 0 0 20px 0;
-          }
-      `}</style>
-        <TodoList />
-      </div>
+      <TodoList />
     )
   }
 }
-
-// const mapStateToProps = ({  }) => ({ count })
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -40,4 +19,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(null, mapDispatchToProps)(Todo)
-// export default connect()(Todo)

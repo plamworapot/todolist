@@ -2,11 +2,14 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import withRedux from 'next-redux-wrapper'
 import { initStore } from './../src/store'
-import Todo from './../src/containers/Todo'
-import { loadPrevStore } from './../src/actions'
+import TodoAdd from './../src/containers/TodoAdd'
+import { selected, loadPrevStore } from './../src/actions'
 
-class Index extends React.Component {
-  static getInitialProps ({ isServer }) {
+class Add extends React.Component {
+  static getInitialProps ({ store, isServer, query }) {
+    if (query.id) {
+      store.dispatch(selected(query.id))
+    }
     return { isServer }
   }
 
@@ -14,7 +17,12 @@ class Index extends React.Component {
     if (window.localStorage) {
       const prevState = window.localStorage.getItem('todoState')
       if (prevState) {
-        this.props.loadPrevStore(JSON.parse(prevState))
+        const jsonState = JSON.parse(prevState)
+        this.props.loadPrevStore({
+          ...jsonState,
+          currentText: '',
+          currentDesc: ''
+        })
       }
     }
   }
@@ -25,7 +33,7 @@ class Index extends React.Component {
 
   render () {
     return (
-      <Todo />
+      <TodoAdd />
     )
   }
 }
@@ -36,4 +44,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default withRedux(initStore, null, mapDispatchToProps)(Index)
+export default withRedux(initStore, null, mapDispatchToProps)(Add)

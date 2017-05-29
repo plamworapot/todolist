@@ -7,15 +7,20 @@
   "license": "MIT",
   "scripts": {
     "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint src/"
+    "nextbuild": "next build",
+    "build": "yarn run nextbuild && next export -o out/",
+    "postbuild": "cp -Rv public/* public/.nojekyll out && sw-precache --config=sw-precache-config.js --root=out/",
+    "deploy": "yarn run build && gh-pages --src '{.nojekyll,**/*}' -d out -m \"Deploy $(git rev-parse HEAD) to GitHub pages [ci skip]\"",
+    "lint": "eslint *.js components pages static public",
+    "start": "env NEXT_DEV=1 yarn build && env NEXT_DEV=1 next start",
+    "static-start": "yarn build && node static-server.js"
   },
   "dependencies": {
     "classname": "^0.0.0",
     "next": "beta",
     "next-redux-wrapper": "^1.1.2",
     "react": "^15.5.4",
+    "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
     "redux": "^3.6.0",

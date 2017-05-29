@@ -20,12 +20,9 @@ export const initStore = (initialState = defaultStore) => {
   )
 
   store.subscribe(() => {
-    if (window && window.localStorage) {
+    if (typeof window !== 'undefined' && window.localStorage) {
       window.localStorage.setItem('todoState', JSON.stringify(store.getState()))
     }
   })
-
-  console.log(store)
-
   return store
 }
