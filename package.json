@@ -6,7 +6,7 @@
   "author": "Worapot Pengsuk <plamworapot@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "env NEXT_DEV=1 next",
     "nextbuild": "next build",
     "build": "yarn run nextbuild && next export -o out/",
     "postbuild": "cp -Rv public/* public/.nojekyll out && sw-precache --config=sw-precache-config.js --root=out/",
