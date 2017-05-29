@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["_next/2a07db99-d7f5-4ab2-8490-8e9290c6c46c/page/_error/index.js","133bdfd435e77fc8f86a565684616b37"],["_next/2a07db99-d7f5-4ab2-8490-8e9290c6c46c/page/add/index.js","5a98cb01a5fc67d4ec4e795982f7a7ba"],["_next/2a07db99-d7f5-4ab2-8490-8e9290c6c46c/page/edit/index.js","55eac007e8342ac07294b33be460ae60"],["_next/2a07db99-d7f5-4ab2-8490-8e9290c6c46c/page/index.js","b9acff46268d0698a6acb478d814e596"],["_next/60b4f9cb58773a8706dfa06491ce59f4/app.js","60b4f9cb58773a8706dfa06491ce59f4"],["static/service-worker-precache-index.js","44424e53333666c84fa91285841b4caf"],["static/service-worker-registration.js","6b6cfe88a69064bc38de1b72886cab86"]];
+var precacheConfig = [["_next/60b4f9cb58773a8706dfa06491ce59f4/app.js","60b4f9cb58773a8706dfa06491ce59f4"],["_next/b49852bf-4d8d-4585-96a7-458b2f71a2de/page/_error/index.js","133bdfd435e77fc8f86a565684616b37"],["_next/b49852bf-4d8d-4585-96a7-458b2f71a2de/page/add/index.js","5a98cb01a5fc67d4ec4e795982f7a7ba"],["_next/b49852bf-4d8d-4585-96a7-458b2f71a2de/page/edit/index.js","55eac007e8342ac07294b33be460ae60"],["_next/b49852bf-4d8d-4585-96a7-458b2f71a2de/page/index.js","fbab93053b01e57226a6a1da2238e645"],["static/service-worker-precache-index.js","44424e53333666c84fa91285841b4caf"],["static/service-worker-registration.js","6b6cfe88a69064bc38de1b72886cab86"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
@@ -285,7 +285,7 @@ self.addEventListener('fetch', function(event) {
 
 // Runtime cache configuration, using the sw-toolbox library.
 
-toolbox.router.get(/(.*)/, toolbox.networkFirst, {});
+toolbox.router.get(/(.*)/, toolbox.fastest, {});
 
 
 
