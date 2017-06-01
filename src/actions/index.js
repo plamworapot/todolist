@@ -42,3 +42,4 @@ export const loadPrevStore = ({ todos, currentText, currentDesc, filter }) => {
     }
   })
 }
+console.log('TEST')
